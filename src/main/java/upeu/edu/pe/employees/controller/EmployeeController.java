@@ -47,12 +47,6 @@ public class EmployeeController {
         HashMap<String, Object> result = new HashMap<>();
         result.put("success", true);
         result.put("message", "Consulta correcta");
-        /*
-        for (Employee x: employeeService.findAll()){
-            x.setEstado(true);
-            employeeService.save(x);
-        }
-        */
         if (query.equals("") && limit == -1 && "".equals(sortBy)) {
             result.put("data", employeeService.findAll());
             return new ResponseEntity<>(result, HttpStatus.OK);
@@ -95,6 +89,7 @@ public class EmployeeController {
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
         }
         try {
+            employee.setIdEmployee(idEmployee);
             employeeService.save(employee);
             result.put("success", true);
             result.put("message", "Se ha actualizado los datos del empleado.");
@@ -148,11 +143,11 @@ public class EmployeeController {
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
         }
         try {
-            data.setEstado(false);
-            employeeService.save(data);
+            // data.setEstado(false);
+            employeeService.delete(data);
             result.put("success", true);
             result.put("message", "Se ha eliminado los datos del registro.");
-            result.put("data", data);
+            // result.put("data", data);
             return new ResponseEntity<>(result, HttpStatus.OK);
 
         } catch (Exception ex) {
