@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import upeu.edu.pe.employees.entity.Departament;
 import upeu.edu.pe.employees.entity.Employee;
 import upeu.edu.pe.employees.service.EmployeeService;
 
@@ -115,7 +116,7 @@ public class EmployeeController {
         result.put("data", data);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
-    
+/* 
     @ApiOperation(value = "Obtiene Datos del Empleado")
     @GetMapping(value = "/nombre/{idEmployee}")
     public ResponseEntity<?> findByNombre(@PathVariable(value = "idEmployee") Long idEmployee, HttpServletRequest request) {
@@ -131,7 +132,7 @@ public class EmployeeController {
         result.put("data", data);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
-
+*/
     @ApiOperation(value = "Elimina un Empleado")
     @DeleteMapping(value = "/{idEmployee}")
     public ResponseEntity<?> delete(@PathVariable(value = "idEmployee") Long idEmployee, HttpServletRequest request) {

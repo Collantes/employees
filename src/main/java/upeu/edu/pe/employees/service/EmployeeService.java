@@ -22,6 +22,8 @@ public interface EmployeeService {
     public Employee save(Employee employee);
 
     public void delete(Employee employee);
+    
+    public void deleteById(Long id);
 
     public List<Employee> findAll(String query, String sortBy);
 

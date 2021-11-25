@@ -92,4 +92,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         result.put("limit", limit);
         return result;
     }
+
+    @Override
+    public void deleteById(Long id) {
+        employeeRepository.deleteById(id);
+    }
 }

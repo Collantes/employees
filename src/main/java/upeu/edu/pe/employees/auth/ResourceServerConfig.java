@@ -29,7 +29,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/employee/**", "swagger-ui.html").permitAll()
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/employee/**").permitAll()
+                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("swagger-ui.html").permitAll()
                 .anyRequest().permitAll()
                 .and().cors().configurationSource(corsConfigurationSource());
     }
